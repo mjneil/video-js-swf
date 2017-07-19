@@ -105,3 +105,4 @@ _(none)_
 * Fixed bugs with buffered and duration reporting on non-linear streams ([view](https://github.com/videojs/video-js-swf/pull/80))
 * Added refined seeking for use on non-linear streams ([view](https://github.com/videojs/video-js-swf/pull/80))
 * Extended endOfStream for use with Media Sources API ([view](https://github.com/videojs/video-js-swf/pull/80))
+

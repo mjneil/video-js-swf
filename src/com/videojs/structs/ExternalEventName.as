@@ -23,7 +23,12 @@ package com.videojs.structs{
         public static const ON_RTMP_RETRY:String = "rtmpretry";
         public static const ON_STAGE_CLICK:String = "stageclick";
 
+        public static const ON_LEVEL_SWITCH:String = "levelswitch";
+
         public static const ON_TEXT_DATA:String = "textdata";
 
+        public static const ON_ID3_UPDATED:String = "id3updated";
+
+        public static const ON_CAPTION_DATA:String = "captiondata";
     }
 }

@@ -30,6 +30,7 @@ package{
         private var _stageSizeTimer:Timer;
 
         public function VideoJS(){
+
             _stageSizeTimer = new Timer(250);
             _stageSizeTimer.addEventListener(TimerEvent.TIMER, onStageSizeTimerTick);
             addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
@@ -74,7 +75,6 @@ package{
                 ExternalInterface.addCallback("vjs_endOfStream", onEndOfStreamCalled);
                 ExternalInterface.addCallback("vjs_abort", onAbortCalled);
                 ExternalInterface.addCallback("vjs_discontinuity", onDiscontinuityCalled);
-
                 ExternalInterface.addCallback("vjs_getProperty", onGetPropertyCalled);
                 ExternalInterface.addCallback("vjs_setProperty", onSetPropertyCalled);
                 ExternalInterface.addCallback("vjs_autoplay", onAutoplayCalled);
@@ -108,6 +108,9 @@ package{
         }
 
         private function finish():void{
+
+            // Pass the whole parameters to the model so that any provider may refer it.
+            _app.model.parameters = loaderInfo.parameters;
 
             if(loaderInfo.parameters.mode != undefined){
                 _app.model.mode = loaderInfo.parameters.mode;
@@ -315,6 +318,14 @@ package{
                     break;
                 case "getVideoPlaybackQuality":
                     return _app.model.videoPlaybackQuality;
+                case "numberOfLevels":
+                    return _app.model.numberOfLevels;
+                    break;
+                case "level":
+                    return _app.model.level;
+                    break;
+                case "autoLevelEnabled":
+                    return _app.model.autoLevelEnabled;
                     break;
             }
             return null;
@@ -371,6 +382,9 @@ package{
                     break;
                 case "rtmpStream":
                     _app.model.rtmpStream = String(pValue);
+                    break;
+                case "level":
+                    _app.model.level = int(pValue);
                     break;
                 default:
                     _app.model.broadcastErrorEventExternally(ExternalErrorEventName.PROPERTY_NOT_FOUND, pPropertyName);

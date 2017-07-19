@@ -17,7 +17,7 @@ package com.videojs.providers{
 
     public class HTTPVideoProvider extends EventDispatcher implements IProvider{
 
-        private static var FLV_HEADER = new ByteArray();
+        private static var FLV_HEADER:ByteArray = new ByteArray();
         // file marker
         FLV_HEADER.writeByte(0x46); // 'F'
         FLV_HEADER.writeByte(0x4c); // 'L'
@@ -83,7 +83,6 @@ package com.videojs.providers{
         private var _canPlayThrough:Boolean = false;
         private var _loop:Boolean = false;
         private var _durationOverride:Number;
-
         private var _model:VideoJSModel;
 
         public function HTTPVideoProvider(){
@@ -336,7 +335,7 @@ package com.videojs.providers{
         }
 
         public function pause():void{
-            var alreadyPaused = _isPaused;
+            var alreadyPaused:Boolean = _isPaused;
             _ns.pause();
             if(_playbackStarted && !alreadyPaused){
                 _model.broadcastEventExternally(ExternalEventName.ON_PAUSE);
@@ -459,6 +458,25 @@ package com.videojs.providers{
             }
         }
 
+        // This provider supports a stream with single level.
+        public function get numberOfLevels():int{
+            return 1;
+        }
+        public function get level():int{
+            return 0;
+        }
+        public function set level(pLevel:int):void
+        {
+            if (pLevel != 0)
+            {
+                throw "Wrong level.";
+            }
+        }
+        public function get autoLevelEnabled():Boolean
+        {
+            return false;
+        }
+
         private function initNetConnection():void{
             // The video element triggers loadstart as soon as the resource selection algorithm selects a source
             // this is somewhat later than that moment but relatively close
@@ -579,6 +597,8 @@ package com.videojs.providers{
                     break;
 
                 case "NetStream.Buffer.Full":
+                    _model.broadcastEventExternally(ExternalEventName.ON_CAN_PLAY);
+
                     // NetStream.Seek.Notify fires as soon as the
                     // Netstream's internal buffer has been flushed
                     // but HTML should wait to fire "seeked" until
@@ -591,7 +611,6 @@ package com.videojs.providers{
                         _isSeeking = false;
                         _model.broadcastEventExternally(ExternalEventName.ON_SEEK_COMPLETE);
                     }
-
                     _pausedSeekValue = -1;
                     _playbackStarted = true;
                     if(_pausePending){
