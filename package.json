@@ -15,7 +15,6 @@
     "url": "https://github.com/videojs/video-js-swf.git"
   },
   "devDependencies": {
-    "@brightcove/videojs-baller": "^4.1.0",
     "async": "~0.2.9",
     "chg": "^0.3.2",
     "flex-sdk": "4.6.0-0",
