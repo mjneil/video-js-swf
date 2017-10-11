@@ -26,6 +26,16 @@ package com.videojs.providers{
         function get duration():Number;
 
         /**
+         * Should return a value that indicates the current seekable start, in seconds.
+         */
+        function get seekableStart():Number;
+
+        /**
+         * Should return a value that indicates the current seekable end, in seconds.
+         */
+        function get seekableEnd():Number;
+
+        /**
          * Appends the segment data in a ByteArray to the source buffer.
          * @param  bytes the ByteArray of data to append.
          */

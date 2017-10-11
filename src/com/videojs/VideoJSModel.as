@@ -183,6 +183,20 @@ package com.videojs{
             return 0;
         }
 
+        public function get seekableStart():Number{
+            if(_provider){
+                return _provider.seekableStart;
+            }
+            return 0;
+        }
+
+        public function get seekableEnd():Number{
+            if(_provider){
+                return _provider.seekableEnd;
+            }
+            return 0;
+        }
+
         public function set duration(value:Number):void {
             if(_provider && _provider is HTTPVideoProvider) {
                 (_provider as HTTPVideoProvider).duration = value;

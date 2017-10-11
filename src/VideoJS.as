@@ -250,6 +250,12 @@ package{
                 case "duration":
                     return _app.model.duration;
                     break;
+                case "seekableStart":
+                    return _app.model.seekableStart;
+                    break;
+                case "seekableEnd":
+                    return _app.model.seekableEnd;
+                    break;    
                 case "eventProxyFunction":
                     return _app.model.jsEventProxyName;
                     break;

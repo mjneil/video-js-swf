@@ -134,6 +134,20 @@ package com.videojs.providers{
             return [];
         }
 
+        /** 
+         * HTTPAudioProvider does not support seekableStart
+         */
+        public function get seekableStart():Number{
+            return 0;
+        }
+
+        /** 
+         * HTTPAudioProvider does not support seekableEnd
+         */
+        public function get seekableEnd():Number{
+            return 0;
+        }
+
         public function get bufferedBytesEnd():int{
             return _audioBytesLoaded;
         }
