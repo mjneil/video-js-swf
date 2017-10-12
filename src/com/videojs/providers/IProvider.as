@@ -214,6 +214,11 @@ package com.videojs.providers{
         function get numberOfLevels():int;
 
         /**
+         * Returns a list of stream levels that this content has.
+         */
+        function get levels():Array;
+
+        /**
          * Should return the currently used stream level.
          */
         function get level():int;
@@ -224,6 +229,18 @@ package com.videojs.providers{
          * If a level is specified (0-based index), that level is used and auto selection is disabled.
          */
         function set level(pLevel:int):void;
+
+        /**
+         * Gets the capping/max level value that could be used by automatic level
+         * selection algorithm
+         */
+        function get autoLevelCapping():int;
+
+        /**
+         * Sets the capping/max level value that could be used by automatic level
+         * selection algorithm
+         */
+        function set autoLevelCapping(pLevel:int):void;
 
         /**
           * Should return whether auto level selection is currently enabled or not.
