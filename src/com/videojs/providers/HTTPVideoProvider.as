@@ -535,6 +535,18 @@ package com.videojs.providers{
             _nc.connect(null);
         }
 
+        public function get audioTracks():Array {
+            return [];
+        }
+
+        public function get audioTrack():int {
+            return -1;
+        }
+
+        public function set audioTrack(pValue:int):void {
+            return;
+        }
+        
         private function initNetStream():void{
             if(_ns != null){
                 _ns.close();

@@ -246,5 +246,11 @@ package com.videojs.providers{
           * Should return whether auto level selection is currently enabled or not.
           */
         function get autoLevelEnabled():Boolean;
+
+        function get audioTrack():int;
+
+        function set audioTrack(pValue:int):void;
+
+        function get audioTracks():Array;
     }
 }

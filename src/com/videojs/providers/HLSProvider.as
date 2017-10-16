@@ -21,6 +21,7 @@ package com.videojs.providers{
   import org.mangui.hls.utils.Log;
   import org.mangui.hls.utils.Params2Settings;
   import org.mangui.hls.model.Level;
+  import org.mangui.hls.model.AudioTrack;
 
   import by.blooddy.crypto.Base64;
 
@@ -277,6 +278,28 @@ package com.videojs.providers{
           }
         }
 
+        public function get audioTracks():Array {
+            var _audioTracks:Array = [];
+
+            for each(var _audioTrackId:AudioTrack in _hls['audioTracks']) {
+              _audioTracks.push(_audioTrackId);
+            }
+
+            return _audioTracks;
+        }
+
+        public function get audioTrack():int {
+            return _hls['_audioTrackId'];
+        }
+
+        public function set audioTrack(pValue:int):void {
+            _hls['_audioTrackId'] = pValue;
+
+            if (!isNaN(_position) && pValue != -1) {
+                 _hls.stream.seek(_position);
+             }
+        }
+        
         /**
          * Appends the segment data in a ByteArray to the source buffer.
          * @param  bytes the ByteArray of data to append.
