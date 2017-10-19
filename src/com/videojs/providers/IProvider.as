@@ -247,10 +247,19 @@ package com.videojs.providers{
           */
         function get autoLevelEnabled():Boolean;
 
+        /**
+          * Should return index of the currently selected audio track
+          */
         function get audioTrack():int;
 
+        /**
+          * Should select an audio track based on its is index in audio-track list.
+          */
         function set audioTrack(pValue:int):void;
 
+        /**
+          * Should return the list of audio-tracks that this content has.
+          */
         function get audioTracks():Array;
     }
 }

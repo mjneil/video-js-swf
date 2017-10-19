@@ -509,6 +509,21 @@ package com.videojs.providers{
             return;
         }
 
+        // not supported in this provider
+        public function get audioTracks():Array {
+            return [];
+        }
+
+        // not supported in this provider
+        public function get audioTrack():int {
+            return -1;
+        }
+
+        // not supported in this provider
+        public function set audioTrack(pValue:int):void {
+            return;
+        }
+
         private function initNetConnection():void{
             // The video element triggers loadstart as soon as the resource selection algorithm selects a source
             // this is somewhat later than that moment but relatively close
@@ -535,18 +550,6 @@ package com.videojs.providers{
             _nc.connect(null);
         }
 
-        public function get audioTracks():Array {
-            return [];
-        }
-
-        public function get audioTrack():int {
-            return -1;
-        }
-
-        public function set audioTrack(pValue:int):void {
-            return;
-        }
-        
         private function initNetStream():void{
             if(_ns != null){
                 _ns.close();

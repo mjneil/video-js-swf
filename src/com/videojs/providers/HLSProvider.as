@@ -278,6 +278,9 @@ package com.videojs.providers{
           }
         }
 
+       /**
+         * Should return the list of audio-tracks that this content has.
+         */
         public function get audioTracks():Array {
             var _audioTracks:Array = [];
 
@@ -288,18 +291,24 @@ package com.videojs.providers{
             return _audioTracks;
         }
 
+       /**
+         * Should return index of the currently selected audio track
+         */
         public function get audioTrack():int {
-            return _hls['_audioTrackId'];
+            return _hls['audioTrack'];
         }
 
+        /**
+          * Should select an audio track based on its is index in audio-track list
+          */
         public function set audioTrack(pValue:int):void {
-            _hls['_audioTrackId'] = pValue;
+            _hls['audioTrack'] = pValue;
 
             if (!isNaN(_position) && pValue != -1) {
                  _hls.stream.seek(_position);
              }
         }
-        
+
         /**
          * Appends the segment data in a ByteArray to the source buffer.
          * @param  bytes the ByteArray of data to append.
