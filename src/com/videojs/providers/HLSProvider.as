@@ -304,7 +304,7 @@ package com.videojs.providers{
         public function set audioTrack(pValue:int):void {
             _hls['audioTrack'] = pValue;
 
-            if (pValue != -1) {
+            if (!isNaN(_position) && pValue != -1) {
                  _hls.stream.seek(_position);
              }
         }
