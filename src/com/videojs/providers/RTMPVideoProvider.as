@@ -134,14 +134,14 @@ package com.videojs.providers{
             }
         }
 
-        /** 
+        /**
          * RTMPVideoProvider does not support seekableStart
          */
         public function get seekableStart():Number{
             return 0;
         }
 
-        /** 
+        /**
          * RTMPVideoProvider does not support seekableEnd
          */
         public function get seekableEnd():Number{
@@ -439,6 +439,24 @@ package com.videojs.providers{
         public function get autoLevelEnabled():Boolean
         {
             return false;
+        }
+
+        // not supported in this provider
+        public function get levels():Array
+        {
+            return [];
+        }
+
+        // not supported in this provider
+        public function get autoLevelCapping():int
+        {
+            return -1;
+        }
+
+        // not supported in this provider
+        public function set autoLevelCapping(pLevel:int):void
+        {
+            return;
         }
 
         private function initNetConnection():void{

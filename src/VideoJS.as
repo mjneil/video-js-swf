@@ -255,7 +255,7 @@ package{
                     break;
                 case "seekableEnd":
                     return _app.model.seekableEnd;
-                    break;    
+                    break;
                 case "eventProxyFunction":
                     return _app.model.jsEventProxyName;
                     break;
@@ -333,6 +333,12 @@ package{
                 case "autoLevelEnabled":
                     return _app.model.autoLevelEnabled;
                     break;
+                case "levels":
+                    return _app.model.levels;
+                    break;
+                case "autoLevelCapping":
+                    return _app.model.autoLevelCapping;
+                    break;
             }
             return null;
         }
@@ -391,6 +397,9 @@ package{
                     break;
                 case "level":
                     _app.model.level = int(pValue);
+                    break;
+                case "autoLevelCapping":
+                    _app.model.autoLevelCapping = int(pValue);
                     break;
                 default:
                     _app.model.broadcastErrorEventExternally(ExternalErrorEventName.PROPERTY_NOT_FOUND, pPropertyName);

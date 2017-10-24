@@ -583,6 +583,17 @@ package com.videojs{
         }
 
         /**
+         * Returns a list of stream levels that this content has.
+         */
+        public function get levels():Array
+        {
+            if (_provider) {
+                return _provider.levels;
+            }
+            return [];
+        }
+
+        /**
          * Returns the currently used stream level.
          */
         public function get level():int
@@ -602,6 +613,29 @@ package com.videojs{
         {
             if(_provider){
                 _provider.level = pLevel;
+            }
+        }
+
+        /**
+         * Gets the capping/max level value that could be used by automatic level
+         * selection algorithm
+         */
+        public function get autoLevelCapping():int
+        {
+            if (_provider) {
+                return _provider.autoLevelCapping;
+            }
+            return -1;
+        }
+
+        /**
+         * Sets the capping/max level value that could be used by automatic level
+         * selection algorithm
+         */
+        public function set autoLevelCapping(pLevel:int):void
+        {
+            if (_provider) {
+                _provider.autoLevelCapping = pLevel;
             }
         }
 

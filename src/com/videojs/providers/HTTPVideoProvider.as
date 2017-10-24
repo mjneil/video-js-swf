@@ -205,7 +205,7 @@ package com.videojs.providers{
             return 0;
         }
 
-        /** 
+        /**
          * HTTPVideoProvider does not support seekableEnd
          */
         public function get seekableEnd():Number{
@@ -489,6 +489,24 @@ package com.videojs.providers{
         public function get autoLevelEnabled():Boolean
         {
             return false;
+        }
+
+        // not supported in this provider
+        public function get levels():Array
+        {
+            return [];
+        }
+
+        // not supported in this provider
+        public function get autoLevelCapping():int
+        {
+            return -1;
+        }
+
+        // not supported in this provider
+        public function set autoLevelCapping(pLevel:int):void
+        {
+            return;
         }
 
         private function initNetConnection():void{

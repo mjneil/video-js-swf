@@ -20,6 +20,7 @@ package com.videojs.providers{
   import org.mangui.hls.constant.HLSSeekStates;
   import org.mangui.hls.utils.Log;
   import org.mangui.hls.utils.Params2Settings;
+  import org.mangui.hls.model.Level;
 
   import by.blooddy.crypto.Base64;
 
@@ -271,7 +272,7 @@ package com.videojs.providers{
         public function get seekableEnd():Number {
           if(_hls.type == HLSTypes.VOD) {
             return _duration;
-          } else { 
+          } else {
             return _duration + _hls.liveSlidingMain;
           }
         }
@@ -591,11 +592,25 @@ package com.videojs.providers{
         }
 
         /**
+         * Returns a list of stream levels that this content has.
+         */
+        public function get levels():Array
+        {
+          var _levels:Array = [];
+
+          for each (var _level:Level in _hls['levels']) {
+            _levels.push(_level);
+          }
+
+          return _levels;
+        }
+
+        /**
          * Should return the currently used stream level.
          */
         public function get level():int
         {
-            return _hls['level'];
+            return _hls['currentLevel'];
         }
 
         /**
@@ -605,12 +620,30 @@ package com.videojs.providers{
          */
         public function set level(pLevel:int):void
         {
-            _hls['level'] = pLevel;
+            _hls['currentLevel'] = pLevel;
 
             // For reflecting new level from the next segment. Otherwise, new setting is applied only after currently buffered data is gone.
             if (!isNaN(_position) && pLevel != -1) {
                 _hls.stream.seek(_position);
             }
+        }
+
+        /**
+         * Gets the capping/max level value that could be used by automatic level
+         * selection algorithm
+         */
+        public function get autoLevelCapping():int
+        {
+          return _hls['autoLevelCapping'];
+        }
+
+        /**
+         * Sets the capping/max level value that could be used by automatic level
+         * selection algorithm
+         */
+        public function set autoLevelCapping(pLevel:int):void
+        {
+          _hls['autoLevelCapping'] = pLevel;
         }
 
         /**
