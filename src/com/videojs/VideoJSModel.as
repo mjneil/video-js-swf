@@ -207,7 +207,7 @@ package com.videojs{
             if(_provider) {
                 return _provider.audioTrack;
             }
-            return 0;
+            return -1;
         }
 
         public function set audioTrack(pValue:int):void {

@@ -284,8 +284,8 @@ package com.videojs.providers{
         public function get audioTracks():Array {
             var _audioTracks:Array = [];
 
-            for each(var _audioTrackId:AudioTrack in _hls['audioTracks']) {
-              _audioTracks.push(_audioTrackId);
+            for each(var _audioTrack:AudioTrack in _hls['audioTracks']) {
+              _audioTracks.push(_audioTrack);
             }
 
             return _audioTracks;
@@ -304,7 +304,7 @@ package com.videojs.providers{
         public function set audioTrack(pValue:int):void {
             _hls['audioTrack'] = pValue;
 
-            if (!isNaN(_position) && pValue != -1) {
+            if (pValue != -1) {
                  _hls.stream.seek(_position);
              }
         }
