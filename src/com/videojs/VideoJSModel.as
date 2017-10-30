@@ -223,6 +223,13 @@ package com.videojs{
             return [];
         }
 
+        public function get altAudioTracks():Array {
+            if(_provider) {
+                return _provider.altAudioTracks;
+            }
+            return [];
+        }
+
         public function get autoplay():Boolean{
             return _autoplay;
         }

@@ -22,6 +22,7 @@ package com.videojs.providers{
   import org.mangui.hls.utils.Params2Settings;
   import org.mangui.hls.model.Level;
   import org.mangui.hls.model.AudioTrack;
+  import org.mangui.hls.playlist.AltAudioTrack;
 
   import by.blooddy.crypto.Base64;
 
@@ -285,10 +286,29 @@ package com.videojs.providers{
             var _audioTracks:Array = [];
 
             for each(var _audioTrack:AudioTrack in _hls['audioTracks']) {
-              _audioTracks.push(_audioTrack);
+              _audioTracks.push({
+                id: _audioTrack.id,
+                title: _audioTrack.title,
+                source: _audioTrack.source,
+                isDefault: _audioTrack.isDefault,
+                isAAC: _audioTrack.isAAC
+              });
             }
 
             return _audioTracks;
+        }
+
+        /**
+         * Should return the list of alt-audio-tracks that this content has.
+         */
+        public function get altAudioTracks():Array {
+            var _altAudioTracks:Array = [];
+
+            for each(var _altAudioTrack:AltAudioTrack in _hls['altAudioTracks']) {
+              _altAudioTracks.push(_altAudioTrack);
+            }
+
+            return _altAudioTracks;
         }
 
        /**

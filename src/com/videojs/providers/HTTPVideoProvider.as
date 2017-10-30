@@ -515,6 +515,11 @@ package com.videojs.providers{
         }
 
         // not supported in this provider
+        public function get altAudioTracks():Array {
+            return [];
+        }
+
+        // not supported in this provider
         public function get audioTrack():int {
             return -1;
         }

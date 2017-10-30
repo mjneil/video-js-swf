@@ -342,6 +342,9 @@ package{
                 case "audioTracks":
                     return _app.model.audioTracks;
                     break;
+                case "altAudioTracks":
+                    return _app.model.altAudioTracks;
+                    break;
                 case "audioTrack":
                     return _app.model.audioTrack;
                     break;
