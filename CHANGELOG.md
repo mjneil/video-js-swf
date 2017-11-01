@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+--------------------
+
+## 6.0.0 (2017-11-01)
 * Add HLS support through the HLSProvider and flashls
 * Representations and QualityLevels support
 * Multiple Alternate Audio Track support
-
---------------------
 
 ## 5.4.1 (2017-07-25)
 * chore: update broken URLs
