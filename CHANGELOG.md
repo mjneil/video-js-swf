@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add HLS support through the HLSProvider and flashls
+* Representations and QualityLevels support
+* Multiple Alternate Audio Track support
 
 --------------------
 
