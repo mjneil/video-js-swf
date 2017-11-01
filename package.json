@@ -35,5 +35,8 @@
   "scripts": {
     "build": "grunt dist",
     "version": "chg release -y && grunt dist && git add -f dist/ && git add CHANGELOG.md"
+  },
+  "dependencies": {
+    "@brightcove/flashls": "1.0.0"
   }
 }
