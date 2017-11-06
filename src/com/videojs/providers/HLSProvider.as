@@ -712,11 +712,11 @@ package com.videojs.providers{
 
         public function get videoPlaybackQuality():Object{
             if (_hls.stream != null &&
-                _hls.stream.hasOwnProperty('decodedFrames') &&
-                _hls.stream.info.hasOwnProperty('droppedFrames')) {
+                _hls.stream.hasOwnProperty('totalFrames') &&
+                _hls.stream.hasOwnProperty('droppedFrames')) {
                 return {
-                    droppedVideoFrames: _hls.stream.info.droppedFrames,
-                    totalVideoFrames: _hls.stream.decodedFrames + _hls.stream.info.droppedFrames
+                    droppedVideoFrames: _hls.stream.droppedFrames,
+                    totalVideoFrames: _hls.stream.totalFrames
                 };
             }
             return {};
