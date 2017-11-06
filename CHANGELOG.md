@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fix reporting of droppedFrames and totalFrames in getVideoPlaybackQuality for HLSProvider
 
 --------------------
 
