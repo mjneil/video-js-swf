@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Fix reporting of droppedFrames and totalFrames in getVideoPlaybackQuality for HLSProvider
+_(none)_
 
 --------------------
+
+## 6.0.1 (2017-11-06)
+* Fix reporting of droppedFrames and totalFrames in getVideoPlaybackQuality for HLSProvider
 
 ## 6.0.0 (2017-11-01)
 * Add HLS support through the HLSProvider and flashls
