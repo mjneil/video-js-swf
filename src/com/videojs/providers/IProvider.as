@@ -266,5 +266,10 @@ package com.videojs.providers{
           * Should return the list of alt-audio-tracks that this content has.
           */
         function get altAudioTracks():Array;
+
+        /**
+         * Should return metrics that calculate COGS (cost of goods and services).
+         */
+        function get stats():Object;
     }
 }
