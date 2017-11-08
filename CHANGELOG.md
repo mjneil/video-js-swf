@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Sum and Expose COGs stats
+_(none)_
 
 --------------------
+
+## 6.1.0 (2017-11-08)
+* Sum and Expose COGs stats
 
 ## 6.0.1 (2017-11-06)
 * Fix reporting of droppedFrames and totalFrames in getVideoPlaybackQuality for HLSProvider
