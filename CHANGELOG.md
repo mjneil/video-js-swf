@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* add events for fragmentloaded and levelloaded
+_(none)_
 
 --------------------
+
+## 6.2.0 (2017-11-15)
+* add events for fragmentloaded and levelloaded
 
 ## 6.1.0 (2017-11-08)
 * Sum and Expose COGs stats
