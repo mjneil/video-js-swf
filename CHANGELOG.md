@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* add events for fragmentloaded and levelloaded
 
 --------------------
 
