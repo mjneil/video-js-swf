@@ -24,6 +24,8 @@ package com.videojs.structs{
         public static const ON_STAGE_CLICK:String = "stageclick";
 
         public static const ON_LEVEL_SWITCH:String = "levelswitch";
+        public static const ON_LEVEL_LOADED:String = "levelloaded";
+        public static const ON_FRAGMENT_LOADED:String = "fragmentloaded";
 
         public static const ON_TEXT_DATA:String = "textdata";
 

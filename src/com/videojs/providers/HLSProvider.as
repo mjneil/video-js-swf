@@ -78,6 +78,7 @@ package com.videojs.providers{
           _hls.addEventListener(HLSEvent.PLAYBACK_STATE,_playbackStateHandler);
           _hls.addEventListener(HLSEvent.SEEK_STATE,_seekStateHandler);
           _hls.addEventListener(HLSEvent.LEVEL_SWITCH,_levelSwitchHandler);
+          _hls.addEventListener(HLSEvent.LEVEL_LOADED,_levelLoadedHandler);
           _hls.addEventListener(HLSEvent.CAPTION_DATA, _onCaptionDataHandler);
           _hls.addEventListener(HLSEvent.FRAGMENT_LOADED, _onFragmentLoaded);
           _hls.addEventListener(HLSEvent.FRAGMENT_LOAD_EMERGENCY_ABORTED, _onFragmentAborted);
@@ -222,6 +223,10 @@ package com.videojs.providers{
             _model.broadcastEventExternally(ExternalEventName.ON_LEVEL_SWITCH, {levelIndex: levelIndex, bitrate: bitrate, width: width, height: height});
         }
 
+        private function _levelLoadedHandler(event:HLSEvent):void {
+          _model.broadcastEventExternally(ExternalEventName.ON_LEVEL_LOADED);
+        }
+
         private function _onCaptionDataHandler(event:HLSEvent):void {
           var captionData:Array = event.captionData;
           var external:Array = [];
@@ -283,6 +288,7 @@ package com.videojs.providers{
           if (!isNaN(metrics.bandwidth)) {
             _currentBandwidth = metrics.bandwidth;
           }
+          _model.broadcastEventExternally(ExternalEventName.ON_FRAGMENT_LOADED);
         }
 
         private function _onFragmentAborted(event:HLSEvent):void
