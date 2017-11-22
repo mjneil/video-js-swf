@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* also output dts for caption packets
+_(none)_
 
 --------------------
+
+## 6.3.0 (2017-11-22)
+* also output dts for caption packets
 
 ## 6.2.0 (2017-11-15)
 * add events for fragmentloaded and levelloaded
