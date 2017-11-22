@@ -234,7 +234,7 @@ package com.videojs.providers{
           for (var i: uint = 0; i < captionData.length; i++) {
             external.push({
               data: Base64.encode(captionData[i].data),
-              pts: captionData[i].pts,
+              pos: captionData[i].pos,
               dts: captionData[i].dts
             });
           }
