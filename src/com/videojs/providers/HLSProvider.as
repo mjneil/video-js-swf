@@ -113,7 +113,14 @@ package com.videojs.providers{
             _mediaRequestsErrored++;
           }
 
-          _model.broadcastErrorEventExternally(ExternalErrorEventName.SRC_404);
+          if (event.error.code === HLSError.MANIFEST_LOADING_CROSSDOMAIN_ERROR ||
+              event.error.code === HLSError.FRAGMENT_LOADING_CROSSDOMAIN_ERROR ||
+              event.error.code === HLSError.KEY_LOADING_CROSSDOMAIN_ERROR) {
+            _model.broadcastErrorEventExternally({ type: ExternalErrorEventName.SRC_CROSSDOMAIN_ERROR });
+          } else {
+            _model.broadcastErrorEventExternally(ExternalErrorEventName.SRC_404);
+          }
+
           _networkState = NetworkState.NETWORK_NO_SOURCE;
           _readyState = ReadyState.HAVE_NOTHING;
           stop();
