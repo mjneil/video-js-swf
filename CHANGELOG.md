@@ -6,6 +6,9 @@ _(none)_
 
 --------------------
 
+## 6.4.0 (2017-12-13)
+_(none)_
+
 ## 6.3.0 (2017-11-22)
 * also output dts for caption packets
 
